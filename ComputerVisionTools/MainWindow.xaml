@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ComputerVisionTools.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Computer Vision Tools" Height="372" Width="711" ResizeMode="NoResize">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Computer Vision Tools" Height="372" Width="711" ResizeMode="NoResize" 
+        xmlns:my="clr-namespace:ComputerVisionTools">
     <TabControl Height="323" Name="tabControl1" Width="682">
         <TabItem Header="Perspective" Name="tabItemPerspectiveCalculator">
             <Grid>
@@ -46,7 +46,54 @@
             </Grid>
         </TabItem>
         <TabItem Header="Stereo" Name="tabItem1">
-            <Grid />
+            <Grid>
+                <Label Content="X1 (Size on Sensor 1):" Height="28" HorizontalAlignment="Left" Margin="25,24,0,0" Name="labelX1" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="161,27,0,0" Name="textBoxX1" TabIndex="1" VerticalAlignment="Top" Width="120" TextChanged="TextBoxX1TextChanged" />
+                <Label Content="Baseline:" Height="28" HorizontalAlignment="Right" Margin="0,24,219,0" Name="labelBaseline" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Right" Margin="0,29,93,0" Name="textBoxBaseline" TabIndex="3" VerticalAlignment="Top" Width="120" TextChanged="OnTextBoxBaselineTextChanged" />
+                <Label Content="Z (Distance from lens):" Height="28" HorizontalAlignment="Left" Margin="21,133,0,0" Name="label4" VerticalAlignment="Top" />
+                <Label Content="f (Focal length):" Height="28" HorizontalAlignment="Right" Margin="0,133,211,0" Name="labelFocalLength" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="161,138,0,0" Name="textBoxDistanceFromLensStereo" TabIndex="5" VerticalAlignment="Top" Width="120" TextChanged="OnTextBoxDistanceFromLensStereoTextChanged" />
+                <TextBox Height="23" HorizontalAlignment="Right" Margin="0,135,91,0" Name="textBoxFocalLengthStereo" TabIndex="7" VerticalAlignment="Top" Width="120" TextChanged="OnTextBoxFocalLengthStereoTextChanged" />
+                <ComboBox Height="22" HorizontalAlignment="Left" Margin="293,26,0,0" Name="comboBoxX1Units" TabIndex="2" VerticalAlignment="Top" Width="45" DropDownClosed="comboBoxX1Units_DropDownClosed">
+                    <ComboBoxItem Content="mm" IsSelected="True" />
+                    <ComboBoxItem Content="cm" />
+                    <ComboBoxItem Content="m" />
+                    <ComboBoxItem Content="km" />
+                </ComboBox>
+                <ComboBox Height="22" HorizontalAlignment="Left" Margin="293,138,0,0" Name="comboBoxDistanceFromLensUnitsStereo" TabIndex="6" VerticalAlignment="Top" Width="45" DropDownClosed="OnComboBoxDistanceFromLensStereoUnitsDropDownClosed">
+                    <ComboBoxItem Content="mm" IsSelected="True" />
+                    <ComboBoxItem Content="cm" />
+                    <ComboBoxItem Content="m" />
+                    <ComboBoxItem Content="km" />
+                </ComboBox>
+                <ComboBox Height="22" HorizontalAlignment="Right" Margin="0,135,32,0" Name="comboBoxFocalLengthUnitsStereo" TabIndex="8" VerticalAlignment="Top" Width="45" DropDownClosed="OnComboBoxFocalLengthStereoUnitsDropDownClosed">
+                    <ComboBoxItem Content="mm" IsSelected="True" />
+                    <ComboBoxItem Content="cm" />
+                    <ComboBoxItem Content="m" />
+                    <ComboBoxItem Content="km" />
+                </ComboBox>
+                <ComboBox Height="22" HorizontalAlignment="Right" Margin="0,28,32,0" Name="comboBoxBaselineUnits" TabIndex="4" VerticalAlignment="Top" Width="45" DropDownClosed="OnComboBoxBaselineUnitsDropDownClosed">
+                    <ComboBoxItem Content="mm" IsSelected="True" />
+                    <ComboBoxItem Content="cm" />
+                    <ComboBoxItem Content="m" />
+                    <ComboBoxItem Content="km" />
+                </ComboBox>
+                <Button Content="Calculate" Height="24" IsDefault="True" Margin="251,186,336,0" Name="buttonCalculateStereo" TabIndex="9" VerticalAlignment="Top" Click="ButtonCalculateStereoClick" />
+                <Button Content="Reset" Height="24" Margin="381,186,219,0" Name="buttonResetStereo" TabIndex="10" VerticalAlignment="Top" Click="ButtonResetStereoClick" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="171,238,0,0" Name="textBlockFormulaStereo" Text="" VerticalAlignment="Top" Width="416" />
+                <Label Content="Formula:" Height="28" HorizontalAlignment="Left" Margin="102,233,0,0" Name="label6" VerticalAlignment="Top" />
+                <Label Content="X2 (Size on Sensor 2):" Height="28" HorizontalAlignment="Left" Margin="25,58,0,0" Name="labelX2" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="161,61,0,0" Name="textBoxX2" TabIndex="1" VerticalAlignment="Top" Width="120" TextChanged="TextBoxX2TextChanged" />
+                <ComboBox Height="22" HorizontalAlignment="Left" Margin="293,60,0,0" Name="comboBoxX2Units" TabIndex="2" VerticalAlignment="Top" Width="45" DropDownClosed="ComboBoxX2UnitsDropDownClosed">
+                    <ComboBoxItem Content="mm" IsSelected="True" />
+                    <ComboBoxItem Content="cm" />
+                    <ComboBoxItem Content="m" />
+                    <ComboBoxItem Content="km" />
+                </ComboBox>
+                <Label Content="max(X1, X2) - min(X1, X2):" Height="28" HorizontalAlignment="Left" Margin="3,92,0,0" Name="labelXSizeStereo" VerticalAlignment="Top" />
+                <Label Height="28" HorizontalAlignment="Left" Margin="161,92,0,0" Name="labelDerivedX" VerticalAlignment="Top" Width="120" />
+            </Grid>
         </TabItem>
     </TabControl>
 </Window>
