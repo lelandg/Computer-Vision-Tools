@@ -1,4 +1,5 @@
-Released as open source under the MIT license.
+Released as open source under the MIT license. (See License.txt)
+
 Copyright (c) 2011 Leland Green... All Rights Reserved.
 
 * Written as a practical exercise in WPF/XAML and to help me learn the computer 
